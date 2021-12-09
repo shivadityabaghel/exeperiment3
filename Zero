@@ -1,0 +1,81 @@
+package First;
+
+interface Vehicle {
+    void avgSpeed();
+    void noTyre();
+
+}
+
+class Bicycle implements Vehicle{
+
+    @Override
+    public void avgSpeed() {
+        System.out.println("Average speed of bicycle is 22 km/h");
+    }
+
+    @Override
+    public void noTyre() {
+        System.out.println("Bicycle has two tyres");
+    }
+
+    public void used(){
+        System.out.println("Bicycle is used for travelling or exercise");
+    }
+}
+
+class Car implements Vehicle{
+
+    @Override
+    public void avgSpeed() {
+        System.out.println("Average speed of car is 60 km/h");
+    }
+
+    @Override
+    public void noTyre() {
+        System.out.println("Car has four tyres");
+    }
+
+    public void fuelUsed(){
+        System.out.println("Petrol, Diesel and CNG are the types of Fuel used in Cars");
+    }
+}
+
+class Bike implements Vehicle{
+
+    @Override
+    public void avgSpeed() {
+        System.out.println("Average speed of a bike is 50km/h");
+    }
+
+    @Override
+    public void noTyre() {
+        System.out.println("Bike has two tyres");
+    }
+
+    public void avgMileage(){
+        System.out.println("Average mileage of Bike is 60 km/L");
+    }
+}
+public class Zero {
+    public static void main(String[] args) {
+        Vehicle bicycle = new Bicycle();
+        Vehicle car = new Car();
+        Vehicle bike = new Bike();
+        Car car1 = new Car();
+        Bike bike1 = new Bike();
+        Bicycle bicycle1 = new Bicycle();
+        System.out.println("Bicycle: ");
+        bicycle.avgSpeed();
+        bicycle.noTyre();
+        bicycle1.used();
+        System.out.println("Car: ");
+        car.avgSpeed();
+        car.noTyre();
+        car1.fuelUsed();
+        System.out.println("Bike: ");
+        bike.avgSpeed();
+        bike.noTyre();
+        bike1.avgMileage();
+
+    }
+}
