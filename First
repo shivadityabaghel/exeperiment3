@@ -1,0 +1,28 @@
+package Second;
+
+import java.util.Scanner;
+
+class InvalidPasswordException extends Exception{
+    public InvalidPasswordException(String errorMessage){
+        super(errorMessage);
+    }
+}
+
+public class First {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Login Id: ");
+        String login = scan.next();
+        System.out.print("Password: ");
+        String password = scan.next();
+        try {
+            if (password.matches(".[0-9]+.") && password.matches(".[@#$]+.") && password.length() >= 8 && password.length() <= 20) {
+                System.out.println("Logged In");
+            } else {
+                throw new InvalidPasswordException("Invalid Password");
+            }
+        } catch (InvalidPasswordException e) {
+            System.out.println("Invalid Password");
+        }
+    }
+}
