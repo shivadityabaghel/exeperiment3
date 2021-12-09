@@ -1,0 +1,55 @@
+package Third;
+
+import java.util.Scanner;
+
+class LessBalanceException extends Exception{
+    public LessBalanceException(String errormessage){
+        super(errormessage);
+    }
+
+}
+public class Second {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int balance=1000;
+        System.out.println("Your account is created with 1000 Rupees balance");
+        int flag=1;
+        while (flag==1){
+            System.out.println("Press\n1 Deposit \n2 Withdrawal \n3 Display Your Balance\n4 Exit");
+            int ch = scan.nextInt();
+            switch (ch) {
+                case 1:
+                    System.out.print("Enter the amount to be deposited: ");
+                    double amt = scan.nextDouble();
+                    try {
+                        if (amt >= 1000) {
+                            System.out.println(amt + " Amount Deposited successfully");
+                            balance += amt;
+                            System.out.println("Total Balance = " + balance);
+                        } else
+                            throw new LessBalanceException("Error: Invalid amount");
+                    } catch (LessBalanceException e) {
+                        System.out.println("Error: Invalid amount");
+                    }
+                    break;
+                case 2:
+                    System.out.print("Enter the amount to be withdrawn: ");
+                    double a = scan.nextDouble();
+                    try {
+                        if (a >= 1000 && balance > (a + 1000)) {
+                            System.out.println(a + " Amount withdrawn successfully");
+                            balance -= a;
+                            System.out.println("Your Balance = " + balance);
+                        } else
+                            throw new LessBalanceException("Error: Invalid amount");
+                    } catch (LessBalanceException e) {
+                        System.out.println("Error: Invalid amount");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Your balance = "+balance);break;
+                case 4: flag=0;
+            }
+        }
+    }
+}
